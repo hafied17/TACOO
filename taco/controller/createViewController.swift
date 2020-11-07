@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  createViewController.swift
 //  taco
 //
 //  Created by hafied Khalifatul ash.shiddiqi on 07/11/20.
@@ -8,13 +8,16 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class createViewController: UIViewController {
 
+    @IBOutlet weak var create: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
-    }
 
+        create.layer.cornerRadius = 10.0
+    }
+    
+    
 
 }
-
