@@ -27,7 +27,7 @@ class secondViewController: UIViewController {
         
     }
    
-    @IBAction func start(_ sender: UIButton){
+@IBAction func start(_ sender: UIButton){
         
         if isActive{
             isActive = false

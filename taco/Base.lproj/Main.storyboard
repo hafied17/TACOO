@@ -101,7 +101,7 @@
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <segue destination="fEI-ec-aXr" kind="show" id="tBf-mG-z7y"/>
+                                    <action selector="create:" destination="trS-b6-i4s" eventType="touchUpInside" id="bgH-0c-2WY"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MMCWE" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Of-g4-GaX">
@@ -127,6 +127,7 @@
                     <navigationItem key="navigationItem" id="7jO-kl-dHs"/>
                     <connections>
                         <outlet property="create" destination="97H-wG-WXK" id="kWi-qe-vb4"/>
+                        <segue destination="TNH-SX-DMT" kind="show" identifier="create" id="hON-sG-xfA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HRL-vT-084" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -271,4 +272,7 @@
             <point key="canvasLocation" x="1028.985507246377" y="137.94642857142856"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="hON-sG-xfA"/>
+    </inferredMetricsTieBreakers>
 </document>

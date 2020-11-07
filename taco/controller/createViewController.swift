@@ -18,6 +18,12 @@ class createViewController: UIViewController {
         create.layer.cornerRadius = 10.0
     }
     
-    
+     @IBAction func create(_ sender: UIButton){
+           
+           
+               self.performSegue(withIdentifier: "create", sender: self)
+           
+           
+       }
 
 }
