@@ -25,6 +25,7 @@
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
+                                    <action selector="join:" destination="8kD-z8-55w" eventType="touchUpInside" id="qFc-gM-HSw"/>
                                     <segue destination="TNH-SX-DMT" kind="show" id="fL3-rr-znq"/>
                                 </connections>
                             </button>
@@ -67,7 +68,8 @@
                     <navigationItem key="navigationItem" id="5gu-wf-sNJ"/>
                     <connections>
                         <outlet property="field" destination="JO4-zn-Xfz" id="2vZ-a3-Bhf"/>
-                        <outlet property="join" destination="OAD-zy-f6I" id="z2e-TF-ZDk"/>
+                        <outlet property="join" destination="OAD-zy-f6I" id="5bq-0J-IQW"/>
+                        <outlet property="textField" destination="JO4-zn-Xfz" id="3ol-OY-gaJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Bbm-6e-WsT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -77,7 +79,7 @@
         <!--Create View Controller-->
         <scene sceneID="zmS-ia-rog">
             <objects>
-                <viewController storyboardIdentifier="create" id="trS-b6-i4s" customClass="createViewController" customModule="taco" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="create" id="trS-b6-i4s" customClass="CreateViewController" customModule="taco" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Foh-L1-pMx">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -104,8 +106,8 @@
                                     <action selector="create:" destination="trS-b6-i4s" eventType="touchUpInside" id="bgH-0c-2WY"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MMCWE" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Of-g4-GaX">
-                                <rect key="frame" x="152.5" y="431.5" width="109" height="33.5"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Room Code" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Of-g4-GaX">
+                                <rect key="frame" x="136" y="431" width="142" height="34"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -127,6 +129,7 @@
                     <navigationItem key="navigationItem" id="7jO-kl-dHs"/>
                     <connections>
                         <outlet property="create" destination="97H-wG-WXK" id="kWi-qe-vb4"/>
+                        <outlet property="meetingCode" destination="4Of-g4-GaX" id="57h-AK-il9"/>
                         <segue destination="TNH-SX-DMT" kind="show" identifier="create" id="hON-sG-xfA"/>
                     </connections>
                 </viewController>
@@ -273,6 +276,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="hON-sG-xfA"/>
+        <segue reference="fL3-rr-znq"/>
     </inferredMetricsTieBreakers>
 </document>

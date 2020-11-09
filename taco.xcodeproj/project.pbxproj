@@ -17,7 +17,7 @@
 		807F135A2556535800B9753E /* firstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 807F13592556535800B9753E /* firstViewController.swift */; };
 		807F135C25566B2600B9753E /* secondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 807F135B25566B2600B9753E /* secondViewController.swift */; };
 		807F135E25566F3400B9753E /* detailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 807F135D25566F3400B9753E /* detailsViewController.swift */; };
-		807F1361255681E900B9753E /* createViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 807F1360255681E900B9753E /* createViewController.swift */; };
+		807F1361255681E900B9753E /* CreateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 807F1360255681E900B9753E /* CreateViewController.swift */; };
 		807F13642556A06600B9753E /* audioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 807F13632556A06600B9753E /* audioViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -34,7 +34,7 @@
 		807F13592556535800B9753E /* firstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = firstViewController.swift; sourceTree = "<group>"; };
 		807F135B25566B2600B9753E /* secondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = secondViewController.swift; sourceTree = "<group>"; };
 		807F135D25566F3400B9753E /* detailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = detailsViewController.swift; sourceTree = "<group>"; };
-		807F1360255681E900B9753E /* createViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = createViewController.swift; sourceTree = "<group>"; };
+		807F1360255681E900B9753E /* CreateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateViewController.swift; sourceTree = "<group>"; };
 		807F13632556A06600B9753E /* audioViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = audioViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -87,7 +87,7 @@
 				807F134625564F5000B9753E /* ViewController.swift */,
 				807F13592556535800B9753E /* firstViewController.swift */,
 				807F135B25566B2600B9753E /* secondViewController.swift */,
-				807F1360255681E900B9753E /* createViewController.swift */,
+				807F1360255681E900B9753E /* CreateViewController.swift */,
 				807F13632556A06600B9753E /* audioViewController.swift */,
 			);
 			path = controller;
@@ -164,7 +164,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				807F1361255681E900B9753E /* createViewController.swift in Sources */,
+				807F1361255681E900B9753E /* CreateViewController.swift in Sources */,
 				807F134D25564F5000B9753E /* taco.xcdatamodeld in Sources */,
 				807F135A2556535800B9753E /* firstViewController.swift in Sources */,
 				807F135E25566F3400B9753E /* detailsViewController.swift in Sources */,
