@@ -12,7 +12,7 @@ class StatusResultViewController: UIViewController {
     
     var timer = Timer()
     let url = URL(string: "http://api.likeholidaybatam.com/check_json_status.php")!
-    var room_code = "2893"
+    var room_code = "2732"
 
     @IBOutlet weak var statusLabel: UILabel!
     @IBOutlet weak var resultButton: UIButton!
@@ -42,6 +42,9 @@ class StatusResultViewController: UIViewController {
 
         URLSession.shared.dataTask(with: request) { data, response, error in
             
+            
+//            let dataString = String(data: data!, encoding: .utf8)
+//            print(dataString)
             guard let data = data else {return}
             do{
                 let statusResult = try JSONDecoder().decode(StatusResponseJson.self, from: data)
@@ -56,6 +59,7 @@ class StatusResultViewController: UIViewController {
                         self.statusLabel.text = "Your Result is Ready"
                     }else{
                         print(statusResult.description)
+                       
                     }
                 }
             }catch let err{
