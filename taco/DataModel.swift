@@ -1,5 +1,5 @@
 //
-//  File.swift
+//  DataModel.swift
 //  taco
 //
 //  Created by Franky Chainoor Johari on 10/11/20.
@@ -20,7 +20,7 @@ struct postDataMeeting: Encodable {
     var fullTranscription = [postDataTranscript]()
 }
 
-struct StatusResponseJson: Encodable {
+struct StatusResponseJson: Encodable, Decodable {
     var status: Bool
     var description: String
 }

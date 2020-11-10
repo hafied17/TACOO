@@ -7,7 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		31A3035B255A56C400239ABC /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31A3035A255A56C400239ABC /* File.swift */; };
+		31A30362255ACF3200239ABC /* StatusResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31A30361255ACF3200239ABC /* StatusResultViewController.swift */; };
+		31A30365255ACFD800239ABC /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31A30364255ACFD800239ABC /* DataModel.swift */; };
 		807F134325564F5000B9753E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 807F134225564F5000B9753E /* AppDelegate.swift */; };
 		807F134525564F5000B9753E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 807F134425564F5000B9753E /* SceneDelegate.swift */; };
 		807F134725564F5000B9753E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 807F134625564F5000B9753E /* ViewController.swift */; };
@@ -23,7 +24,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		31A3035A255A56C400239ABC /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = File.swift; path = "Data Model/File.swift"; sourceTree = "<group>"; };
+		31A30361255ACF3200239ABC /* StatusResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusResultViewController.swift; sourceTree = "<group>"; };
+		31A30364255ACFD800239ABC /* DataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
 		807F133F25564F5000B9753E /* taco.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = taco.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		807F134225564F5000B9753E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		807F134425564F5000B9753E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -79,7 +81,7 @@
 				807F135325564F5200B9753E /* Info.plist */,
 				807F134B25564F5000B9753E /* taco.xcdatamodeld */,
 				807F135D25566F3400B9753E /* detailsViewController.swift */,
-				31A3035A255A56C400239ABC /* File.swift */,
+				31A30364255ACFD800239ABC /* DataModel.swift */,
 			);
 			path = taco;
 			sourceTree = "<group>";
@@ -92,6 +94,7 @@
 				807F135B25566B2600B9753E /* secondViewController.swift */,
 				807F1360255681E900B9753E /* CreateViewController.swift */,
 				807F13632556A06600B9753E /* audioViewController.swift */,
+				31A30361255ACF3200239ABC /* StatusResultViewController.swift */,
 			);
 			path = controller;
 			sourceTree = "<group>";
@@ -172,9 +175,10 @@
 				807F135A2556535800B9753E /* firstViewController.swift in Sources */,
 				807F135E25566F3400B9753E /* detailsViewController.swift in Sources */,
 				807F13642556A06600B9753E /* audioViewController.swift in Sources */,
-				31A3035B255A56C400239ABC /* File.swift in Sources */,
+				31A30365255ACFD800239ABC /* DataModel.swift in Sources */,
 				807F134725564F5000B9753E /* ViewController.swift in Sources */,
 				807F134325564F5000B9753E /* AppDelegate.swift in Sources */,
+				31A30362255ACF3200239ABC /* StatusResultViewController.swift in Sources */,
 				807F135C25566B2600B9753E /* secondViewController.swift in Sources */,
 				807F134525564F5000B9753E /* SceneDelegate.swift in Sources */,
 			);

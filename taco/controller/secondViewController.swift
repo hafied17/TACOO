@@ -281,13 +281,6 @@ class secondViewController: UIViewController, SFSpeechRecognizerDelegate {
    
     @IBAction func start(_ sender: UIButton){
             
-//        if isActive{
-//            isActive = false
-//            start.setTitle("STOP", for: .normal)
-//        }else{
-//            self.performSegue(withIdentifier: "stop", sender: self)
-//        }
-
         
         if audioEngine.isRunning {
             audioEngine.stop()
