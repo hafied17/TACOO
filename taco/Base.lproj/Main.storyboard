@@ -26,7 +26,6 @@
                                 </state>
                                 <connections>
                                     <action selector="join:" destination="8kD-z8-55w" eventType="touchUpInside" id="qFc-gM-HSw"/>
-                                    <segue destination="TNH-SX-DMT" kind="show" id="fL3-rr-znq"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Code" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JO4-zn-Xfz">
@@ -70,6 +69,7 @@
                         <outlet property="field" destination="JO4-zn-Xfz" id="2vZ-a3-Bhf"/>
                         <outlet property="join" destination="OAD-zy-f6I" id="5bq-0J-IQW"/>
                         <outlet property="textField" destination="JO4-zn-Xfz" id="3ol-OY-gaJ"/>
+                        <segue destination="TNH-SX-DMT" kind="show" identifier="join" id="JPA-pM-0Ea"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Bbm-6e-WsT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -276,6 +276,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="fL3-rr-znq"/>
+        <segue reference="JPA-pM-0Ea"/>
     </inferredMetricsTieBreakers>
 </document>
