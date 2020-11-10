@@ -180,9 +180,9 @@ class secondViewController: UIViewController, SFSpeechRecognizerDelegate {
                         request.setValue("multipart/form-data; boundary=\(boundary)", forHTTPHeaderField: "Content-Type")
                         let httpBody = NSMutableData()
                         
-                        httpBody.appendString(convertFormField(named: "room_code", value: self.room_code, using: boundary))
+                        httpBody.appendString(self.convertFormField(named: "room_code", value: self.room_code, using: boundary))
                         
-                        httpBody.append(convertFileData(fieldName: "userfile",
+                        httpBody.append(self.convertFileData(fieldName: "userfile",
                                                         fileName: "\(self.member_id).json",
                                                         mimeType: "application/json",
                                                         fileData: fileJsonData,
