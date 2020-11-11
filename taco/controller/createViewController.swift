@@ -41,12 +41,12 @@ class CreateViewController: UIViewController {
     func fetchAPI() {
         guard let gitURL = URL(string: "http://api.likeholidaybatam.com/generate_room_code.php") else {return}
             
-        _ =  ["host_id": UUID().uuidString]
+        _ =  ["host_id": GenerateHostID()]
             var request = URLRequest(url: gitURL)
             request.httpMethod = "POST"
             
         
-            let stringPost="host_id=\(UUID().uuidString)" // Key and Value 
+            let stringPost="host_id=\(HostID())" // Key and Value 
             let data = stringPost.data(using: .utf8)
             request.timeoutInterval = 60
             request.httpBody=data
@@ -63,7 +63,8 @@ class CreateViewController: UIViewController {
                     DispatchQueue.main.async {
                         
                         self.meetingCode.text = "\(String(describing: roomData.room_code!))"
-                        self.defaults.set(roomData.room_code, forKey: "room_code")
+                        self.defaults.set(roomData.room_code!, forKey: "room_code")
+                        
                     }
                     
                     
@@ -72,6 +73,16 @@ class CreateViewController: UIViewController {
                     print("Error", err)
                 }
             }.resume()
+    }
+    
+    func GenerateHostID() ->String{
+        let uuid = UUID().uuidString
+        defaults.set(uuid, forKey: "UUID")
+        return uuid
+    }
+    
+    func HostID() -> String{
+        return defaults.string(forKey: "UUID")!
     }
     
     struct CreateRoom: Codable {
