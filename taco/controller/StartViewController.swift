@@ -32,6 +32,7 @@ class StartViewController: UIViewController, SFSpeechRecognizerDelegate {
     var isActive:Bool = true
 
     override func viewDidLoad() {
+        print(defaults.string(forKey: "room_code")!)
         super.viewDidLoad()
         start.layer.cornerRadius = 10
         // Configure the SFSpeechRecognizer object already

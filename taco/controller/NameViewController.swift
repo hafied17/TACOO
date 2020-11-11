@@ -19,7 +19,7 @@ class NameViewController: UIViewController {
     }
     
     func coderoom() -> String {
-        return self.defaults.string(forKey: "code_room")!
+        return self.defaults.string(forKey: "room_code")!
     }
     
     @IBAction func joinButtonTapped(_ sender: Any) {

@@ -12,7 +12,7 @@ class ResultViewController: UIViewController {
 
     @IBOutlet weak var resultLabal: UILabel!
     
-    let url = URL(string: "http://api.likeholidaybatam.com/check_json_status.php")!
+    let url = URL(string: "http://api.likeholidaybatam.com/get_interuptions_result.php")!
     var room_code = UserDefaults.standard.string(forKey: "room_code")!
     var member_id = UserDefaults.standard.string(forKey: "UUID")!
     override func viewDidLoad() {

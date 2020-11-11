@@ -25,14 +25,36 @@ struct StatusResponseJson: Encodable, Decodable {
     var description: String
 }
 
-struct DetailResult: Encodable, Decodable {
-    var victim_name: String
-    var number_interuption: Int8
+struct DetailResult: Decodable {
+    var victim_name: String?
+    var number_interuption: Int8?
+    
+    private enum CodingKeys: String, CodingKey{
+        case victim_name
+        case number_interuption
+    }
 }
 
-struct Result: Encodable, Decodable {
+struct Result: Decodable {
     var total_terinterruptions: Int8
-    var details = [DetailResult]()
+    var details: [DetailResult]?
+    
+    private enum CodingKeys: String, CodingKey{
+        case total_terinterruptions
+        case details
+    }
+//
+//    init(from decoder: Decoder) throws {
+//        let container = try decoder.container(keyedBy: CodingKeys.self)
+//        do{
+//            let detailsResult = try container.decode(DetailResult.self, forKey: .details)
+//            details = [detailsResult]
+//        }catch DecodingError.typeMismatch{
+//            details = try container.decode([DetailResult].self, forKey: .details)
+//        }
+//    }
+
 }
+
 
 
