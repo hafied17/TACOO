@@ -8,7 +8,7 @@
 
 import UIKit
 
-class firstViewController: UIViewController {
+class MainViewController: UIViewController {
     
     var global:Bool?
     @IBOutlet var field: UITextField!

@@ -11,7 +11,7 @@ import Speech
 import Foundation
 
 
-class secondViewController: UIViewController, SFSpeechRecognizerDelegate {
+class StartViewController: UIViewController, SFSpeechRecognizerDelegate {
 
     private let speechRecognizer = SFSpeechRecognizer(locale: Locale(identifier: "en-US"))!
     private var recognitionRequest: SFSpeechAudioBufferRecognitionRequest?

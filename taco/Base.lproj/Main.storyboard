@@ -9,10 +9,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--First View Controller-->
+        <!--Main View Controller-->
         <scene sceneID="Xpq-Ke-jSm">
             <objects>
-                <viewController storyboardIdentifier="first" id="8kD-z8-55w" customClass="firstViewController" customModule="taco" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="first" id="8kD-z8-55w" customClass="MainViewController" customModule="taco" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="SCT-tx-C5T">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -139,10 +139,10 @@
             </objects>
             <point key="canvasLocation" x="1029" y="822"/>
         </scene>
-        <!--Second View Controller-->
+        <!--Start View Controller-->
         <scene sceneID="Mqf-aa-Rlb">
             <objects>
-                <viewController storyboardIdentifier="second" id="TNH-SX-DMT" customClass="secondViewController" customModule="taco" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="second" id="TNH-SX-DMT" customClass="StartViewController" customModule="taco" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="VPT-To-igH">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -321,7 +321,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="hON-sG-xfA"/>
+        <segue reference="JPA-pM-0Ea"/>
     </inferredMetricsTieBreakers>
     <resources>
         <systemColor name="systemBackgroundColor">
