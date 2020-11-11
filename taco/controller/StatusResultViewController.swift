@@ -58,6 +58,7 @@ class StatusResultViewController: UIViewController {
                         self.isLoading.isHidden = true
                         self.resultButton.isHidden = false
                         self.statusLabel.text = "Your Result is Ready"
+                        self.performSegue(withIdentifier: "getResult", sender: nil)
                     }else{
                         print(statusResult.description)
                        

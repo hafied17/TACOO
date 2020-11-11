@@ -137,7 +137,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HRL-vT-084" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1029" y="822"/>
+            <point key="canvasLocation" x="1939" y="919"/>
         </scene>
         <!--Start View Controller-->
         <scene sceneID="Mqf-aa-Rlb">
@@ -173,7 +173,7 @@
                     <navigationItem key="navigationItem" id="eZx-0g-AzM"/>
                     <connections>
                         <outlet property="start" destination="0ly-mD-VbK" id="CpL-W9-CEV"/>
-                        <segue destination="jsH-NM-n8i" kind="presentation" identifier="stop" id="2aE-eJ-QbR"/>
+                        <segue destination="jsH-NM-n8i" kind="presentation" identifier="stop" modalPresentationStyle="fullScreen" id="2aE-eJ-QbR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="abq-Mb-XZ7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -185,7 +185,7 @@
             <objects>
                 <viewController id="jsH-NM-n8i" customClass="StatusResultViewController" customModule="taco" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="7bw-g0-93B">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="QTv-2Z-toC">
@@ -283,7 +283,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YmQ-DG-aOj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5378" y="139"/>
+            <point key="canvasLocation" x="5509" y="138"/>
         </scene>
         <!--Audio View Controller-->
         <scene sceneID="ZKv-Vn-1wR">
@@ -321,7 +321,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="JPA-pM-0Ea"/>
+        <segue reference="hON-sG-xfA"/>
     </inferredMetricsTieBreakers>
     <resources>
         <systemColor name="systemBackgroundColor">
