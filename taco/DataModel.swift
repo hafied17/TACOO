@@ -24,3 +24,4 @@ struct StatusResponseJson: Encodable, Decodable {
     var status: Bool
     var description: String
 }
+
