@@ -22,7 +22,7 @@ class MainViewController: UIViewController {
         super.viewDidLoad()
         join.layer.cornerRadius = 10.0
         
-        print(defaults.string(forKey: "room_code")!)
+     //   print(defaults.string(forKey: "room_code")!)
 
         field.returnKeyType = .done
         field.autocorrectionType = .no
