@@ -12,7 +12,7 @@ class StatusResultViewController: UIViewController {
     
     var timer = Timer()
     let url = URL(string: "http://api.likeholidaybatam.com/check_json_status.php")!
-    var room_code = "2732"
+    var room_code = UserDefaults.standard.string(forKey: "room_code")!
 
     @IBOutlet weak var statusLabel: UILabel!
     @IBOutlet weak var resultButton: UIButton!
@@ -24,6 +24,7 @@ class StatusResultViewController: UIViewController {
         isLoading.isHidden = false
         statusLabel.text = "Please waiting for your result"
         resultButton.isHidden = true
+        print(room_code)
         scheduledTimerWithTimeInterval()
     }
     

@@ -18,10 +18,11 @@ class StartViewController: UIViewController, SFSpeechRecognizerDelegate {
     private var recognitionTask: SFSpeechRecognitionTask?
     private let audioEngine = AVAudioEngine()
     
+    let defaults = UserDefaults.standard
     var meetingRoom = postDataMeeting()
     var fullTranscript = [postDataTranscript]()
-    var member_id = UUID().uuidString
-    var room_code = "123456"
+
+ 
     var transcriptionStartTime: TimeInterval = 0
     
     
@@ -33,7 +34,6 @@ class StartViewController: UIViewController, SFSpeechRecognizerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         start.layer.cornerRadius = 10
-        
         // Configure the SFSpeechRecognizer object already
         // stored in a local member variable.
         speechRecognizer.delegate = self
@@ -72,6 +72,8 @@ class StartViewController: UIViewController, SFSpeechRecognizerDelegate {
     
     
     private func startRecording() throws {
+        var room_code = defaults.string(forKey: "room_code")
+        
         // Cancel the previuos task if it's running.
         recognitionTask?.cancel()
         self.recognitionTask = nil
@@ -123,34 +125,7 @@ class StartViewController: UIViewController, SFSpeechRecognizerDelegate {
                     
                     self.meetingRoom.fullTranscription = self.fullTranscript
 
-//                    do{
-//                    let jsonEncoder = JSONEncoder()
-//                    let jsonData = try jsonEncoder.encode(self.meetingRoom)
-//                    let jsonString = String(data: jsonData, encoding: .utf8)
-//                    print(jsonString!)
-//
-//                    let fileManager = FileManager.default
-//                    let filepath = try fileManager.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
-//                    let fileJsonUrl = filepath.appendingPathComponent(self.member_id).appendingPathExtension("json")
-//
-//
-//                        do{
-//                            try jsonString?.write(to: fileJsonUrl, atomically: true, encoding: String.Encoding.utf8)
-//                        }catch let error as NSError{
-//                            print("Error: fileJsonUrl failed to write: \n\(error)")
-//                        }
-//                    print("file path json \n\n")
-//                    print(fileJsonUrl)
-//
-//                    print("file dump \n\n")
-//                    dump(filepath)
-//
-//                    let filePath1 = try Data(contentsOf: fileJsonUrl)
-//                    print("url filepath: \(filePath1)")
-//                    } catch {
-//                        print("error:", error)
-//                    }
-//
+
                     // MARK: Encode array to JSON
                     do{
                         let jsonEncoder = JSONEncoder()
@@ -162,7 +137,7 @@ class StartViewController: UIViewController, SFSpeechRecognizerDelegate {
                         let fileManager = FileManager.default
                         let filepath = try fileManager.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
                         print("url filepath: \(filepath)")
-                        let fileJsonUrl = filepath.appendingPathComponent(self.member_id).appendingPathExtension("json")
+                        let fileJsonUrl = filepath.appendingPathComponent(self.memberID()).appendingPathExtension("json")
                         print("file path: \(fileJsonUrl)")
 
                         do{
@@ -180,10 +155,10 @@ class StartViewController: UIViewController, SFSpeechRecognizerDelegate {
                         request.setValue("multipart/form-data; boundary=\(boundary)", forHTTPHeaderField: "Content-Type")
                         let httpBody = NSMutableData()
                         
-                        httpBody.appendString(self.convertFormField(named: "room_code", value: self.room_code, using: boundary))
+                        httpBody.appendString(self.convertFormField(named: "room_code", value: room_code!, using: boundary))
                         
                         httpBody.append(self.convertFileData(fieldName: "userfile",
-                                                        fileName: "\(self.member_id).json",
+                                                        fileName: "\(self.memberID()).json",
                                                         mimeType: "application/json",
                                                         fileData: fileJsonData,
                                                         using: boundary))
@@ -252,8 +227,13 @@ class StartViewController: UIViewController, SFSpeechRecognizerDelegate {
     
     // MARK: Generate Boundary String
     private func generateBoundaryString() -> String{
-        var uuid = UUID().uuidString
+        let uuid = defaults.string(forKey: "UUID")!
         return "Boundary-\(uuid)"
+    }
+    
+    func memberID() -> String{
+        let uuid = defaults.string(forKey: "UUID")!
+        return uuid
     }
     
     // MARK: Create Body JSON

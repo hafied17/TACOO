@@ -15,13 +15,15 @@ class MainViewController: UIViewController {
     @IBOutlet weak var join: UIButton!
     @IBOutlet weak var create: UIButton!
     @IBOutlet weak var textField: UITextField!
+    let defaults = UserDefaults.standard
     var isActive:Bool = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
         join.layer.cornerRadius = 10.0
         
-        
+        print(defaults.string(forKey: "room_code")!)
+
         field.returnKeyType = .done
         field.autocorrectionType = .no
         
@@ -44,7 +46,7 @@ class MainViewController: UIViewController {
         request.httpMethod = "POST"
         
     guard let meetingCode = textField.text else { return }
-        let stringPost="member_id=\(UUID().uuidString)&room_code=\(meetingCode)" // Key and Value 
+        let stringPost="member_id=\(GenerateUUID())&room_code=\(meetingCode)" // Key and Value 
         let data = stringPost.data(using: .utf8)
             request.httpBody=data
           
@@ -57,8 +59,10 @@ class MainViewController: UIViewController {
         
             print(roomData.status!)
             DispatchQueue.main.async {
+                print(self.memberID())
                 if roomData.status == true{
-                self.performSegue(withIdentifier: "join", sender: self)
+                    self.defaults.set(meetingCode, forKey: "code_room")
+                    self.performSegue(withIdentifier: "join", sender: self)
                 }
             }
             
@@ -66,6 +70,17 @@ class MainViewController: UIViewController {
                  print("Error", err)
             }
         }.resume()
+    }
+    
+    func GenerateUUID() -> String{
+        let uuid = UUID().uuidString
+        defaults.set(uuid, forKey: "UUID")
+        return uuid
+    }
+    
+    func memberID() -> String {
+        let uuid = defaults.string(forKey: "UUID")!
+        return uuid
     }
         
     

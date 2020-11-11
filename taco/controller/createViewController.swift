@@ -13,6 +13,7 @@ class CreateViewController: UIViewController {
     @IBOutlet weak var create: UIButton!
     @IBOutlet weak var meetingCode: UILabel!
     var Active:Bool = true
+    let defaults = UserDefaults.standard
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -62,7 +63,7 @@ class CreateViewController: UIViewController {
                     DispatchQueue.main.async {
                         
                         self.meetingCode.text = "\(String(describing: roomData.room_code!))"
-                        
+                        self.defaults.set(roomData.room_code, forKey: "room_code")
                     }
                     
                     
