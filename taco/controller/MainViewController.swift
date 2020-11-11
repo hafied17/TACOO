@@ -63,6 +63,12 @@ class MainViewController: UIViewController {
                 if roomData.status == true{
                     self.defaults.set(meetingCode, forKey: "code_room")
                     self.performSegue(withIdentifier: "join", sender: self)
+                }else{
+                    let alert = UIAlertController(title: "Room doesn't exist!", message: "Please check your room code again", preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (UIAlertAction) in
+                        //action
+                    }))
+                    self.present(alert, animated: true)
                 }
             }
             

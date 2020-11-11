@@ -71,7 +71,7 @@
                         <outlet property="field" destination="JO4-zn-Xfz" id="2vZ-a3-Bhf"/>
                         <outlet property="join" destination="OAD-zy-f6I" id="5bq-0J-IQW"/>
                         <outlet property="textField" destination="JO4-zn-Xfz" id="3ol-OY-gaJ"/>
-                        <segue destination="TNH-SX-DMT" kind="show" identifier="join" id="JPA-pM-0Ea"/>
+                        <segue destination="bmc-Dt-PR3" kind="show" identifier="join" id="Z0q-Ej-NNn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Bbm-6e-WsT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -132,7 +132,7 @@
                     <connections>
                         <outlet property="create" destination="97H-wG-WXK" id="kWi-qe-vb4"/>
                         <outlet property="meetingCode" destination="4Of-g4-GaX" id="57h-AK-il9"/>
-                        <segue destination="TNH-SX-DMT" kind="show" identifier="create" id="hON-sG-xfA"/>
+                        <segue destination="bmc-Dt-PR3" kind="presentation" identifier="create" modalPresentationStyle="fullScreen" id="Nj4-Dp-Wt3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HRL-vT-084" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -178,7 +178,36 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="abq-Mb-XZ7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2805.7971014492755" y="138.61607142857142"/>
+            <point key="canvasLocation" x="3764" y="551"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="TaU-wQ-lqh">
+            <objects>
+                <viewController id="bmc-Dt-PR3" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="caH-Yj-lmQ">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RWg-g9-fBm">
+                                <rect key="frame" x="184" y="498" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                            </button>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="v4K-Uv-Y1p">
+                                <rect key="frame" x="80" y="409" width="253" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="VWp-L0-kmW"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="Byd-rP-uSL"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Vme-Sn-gu0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2905.7971014492755" y="551.11607142857144"/>
         </scene>
         <!--Status Result View Controller-->
         <scene sceneID="lyP-wp-1g8">
@@ -221,7 +250,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mpg-IL-ScL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3692.753623188406" y="138.61607142857142"/>
+            <point key="canvasLocation" x="4542" y="552"/>
         </scene>
         <!--Result-->
         <scene sceneID="0N9-Gi-V7l">
@@ -267,7 +296,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="r6w-Ev-KSC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4652" y="139"/>
+            <point key="canvasLocation" x="5329" y="550"/>
         </scene>
         <!--Details-->
         <scene sceneID="hob-JH-a3F">
@@ -283,7 +312,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YmQ-DG-aOj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5509" y="138"/>
+            <point key="canvasLocation" x="6091" y="552"/>
         </scene>
         <!--Audio View Controller-->
         <scene sceneID="ZKv-Vn-1wR">
@@ -298,7 +327,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rk8-J6-dir" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6313" y="130"/>
+            <point key="canvasLocation" x="6886" y="138"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="vYD-nN-W5Y">
@@ -321,7 +350,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="hON-sG-xfA"/>
+        <segue reference="Z0q-Ej-NNn"/>
     </inferredMetricsTieBreakers>
     <resources>
         <systemColor name="systemBackgroundColor">
