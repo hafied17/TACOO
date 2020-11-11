@@ -277,7 +277,7 @@
         <!--Result-->
         <scene sceneID="0N9-Gi-V7l">
             <objects>
-                <viewController storyboardIdentifier="result" id="1Rq-5G-MKy" customClass="detailsViewController" customModule="taco" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="result" id="1Rq-5G-MKy" customClass="ResultViewController" customModule="taco" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Psq-TW-ZBN">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -315,6 +315,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Result" id="iPI-nA-Aem"/>
+                    <connections>
+                        <outlet property="resultLabal" destination="zWM-af-wG4" id="1rk-Eg-sAI"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="r6w-Ev-KSC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

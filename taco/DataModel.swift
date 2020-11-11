@@ -25,3 +25,14 @@ struct StatusResponseJson: Encodable, Decodable {
     var description: String
 }
 
+struct DetailResult: Encodable, Decodable {
+    var victim_name: String
+    var number_interuption: Int8
+}
+
+struct Result: Encodable, Decodable {
+    var total_terinterruptions: Int8
+    var details = [DetailResult]()
+}
+
+
