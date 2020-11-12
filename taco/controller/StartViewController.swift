@@ -216,6 +216,7 @@ class StartViewController: UIViewController, SFSpeechRecognizerDelegate {
                 
                 self.start.isEnabled = true
 //                self.start.setTitle("Start Recording", for: [])
+                
                 self.performSegue(withIdentifier: "stop", sender: self)
             }
         }
@@ -424,6 +425,54 @@ class StartViewController: UIViewController, SFSpeechRecognizerDelegate {
                     self.statusLabel.text="Wait for the Host to start the meeting"
                 }else{
                     self.statusLabel.text="Ready"
+                    self.timer.invalidate()
+                    self.startRecord()
+                    self.scheduledTimerWithTimeIntervalEndMeeting()
+                }
+            }
+                     
+               
+               }catch let err{
+                    print("Error", err)
+               }
+           }.resume()
+       }
+    
+    func scheduledTimerWithTimeIntervalEndMeeting() {
+        timer = Timer.scheduledTimer(timeInterval: 5.0, target: self, selector: #selector(checkStatusAPIEndMeeting), userInfo: nil, repeats: true)
+    }
+    
+    @objc func checkStatusAPIEndMeeting(){
+       guard let gitURL = URL(string: "http://api.likeholidaybatam.com/check_status_end_meeting.php") else {return}
+       
+       var request = URLRequest(url: gitURL)
+           request.httpMethod = "POST"
+           
+       
+           let stringPost="room_code=\(room_code())" // Key and Value 
+        
+            print(stringPost)
+           let data = stringPost.data(using: .utf8)
+               request.httpBody=data
+             
+       URLSession.shared.dataTask(with: request) { (data, respone, error) in
+           
+       guard let data = data else { return }
+           do {
+            let roomData = try JSONDecoder().decode(CheckStatusRoom.self, from: data)
+           
+            print(roomData.status!)
+            DispatchQueue.main.async {
+                
+                if roomData.status! == true{
+                    print("\(roomData.status)")
+                    self.statusLabel.text="It's End"
+                    self.timer.invalidate()
+                    self.startRecord()
+                    
+                }else{
+                    self.statusLabel.text="Ready"
+                    self.timer.invalidate()
                     self.startRecord()
                 }
             }
