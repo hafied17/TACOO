@@ -132,7 +132,7 @@
                     <connections>
                         <outlet property="create" destination="97H-wG-WXK" id="kWi-qe-vb4"/>
                         <outlet property="meetingCode" destination="4Of-g4-GaX" id="57h-AK-il9"/>
-                        <segue destination="0nx-hc-zmI" kind="presentation" identifier="create" modalPresentationStyle="fullScreen" id="3BU-1m-OXG"/>
+                        <segue destination="TNH-SX-DMT" kind="presentation" identifier="create" modalPresentationStyle="fullScreen" id="KOC-uo-Dcf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HRL-vT-084" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -165,9 +165,6 @@
                                 <rect key="frame" x="161" y="433" width="97" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Cheat to Start"/>
-                                <connections>
-                                    <segue destination="TNH-SX-DMT" kind="presentation" modalPresentationStyle="fullScreen" id="mlM-4p-6kD"/>
-                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="QnZ-ee-tga"/>
@@ -181,7 +178,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="J9v-BK-kJK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3873.913043478261" y="551.11607142857144"/>
+            <point key="canvasLocation" x="3217" y="138"/>
         </scene>
         <!--Start View Controller-->
         <scene sceneID="Mqf-aa-Rlb">
@@ -368,8 +365,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Uq2-jr-P9a"/>
-        <segue reference="kxx-pY-AOE"/>
+        <segue reference="KOC-uo-Dcf"/>
     </inferredMetricsTieBreakers>
     <resources>
         <systemColor name="systemBackgroundColor">

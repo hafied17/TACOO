@@ -33,6 +33,15 @@ class StartViewController: UIViewController, SFSpeechRecognizerDelegate {
 
     override func viewDidLoad() {
         print(defaults.string(forKey: "room_code")!)
+        print(defaults.string(forKey: "UUID")!)
+        if(defaults.bool(forKey: "isHost")){
+            start.isHidden = false
+            
+        }else{
+            start.isHidden = true
+            startRecord()
+        }
+        
         super.viewDidLoad()
         start.layer.cornerRadius = 10
         // Configure the SFSpeechRecognizer object already
@@ -175,7 +184,8 @@ class StartViewController: UIViewController, SFSpeechRecognizerDelegate {
                             print(dataString)
                         }.resume()
                         
-                        
+                        // MARK: SEND API END MEETING
+                        endMeetingAPI()
 
                     } catch {
                         print("error:", error)
@@ -261,8 +271,26 @@ class StartViewController: UIViewController, SFSpeechRecognizerDelegate {
     }
    
     @IBAction func start(_ sender: UIButton){
+        startMeetingAPI()
+        startRecord()
+//        if audioEngine.isRunning {
+//            audioEngine.stop()
+//            recognitionRequest?.endAudio()
+//            start.isEnabled = false
+//            start.setTitle("Stopping", for: .disabled)
+//        }else{
+//            do {
+//                try startRecording()
+//                start.setTitle("Stop Recording", for: [])
+//            }catch{
+//                start.setTitle("Recording Not Available", for: [])
+//            }
+//        }
             
-        
+    }
+    
+    // MARK: Function to Start Button
+    func startRecord(){
         if audioEngine.isRunning {
             audioEngine.stop()
             recognitionRequest?.endAudio()
@@ -276,8 +304,89 @@ class StartViewController: UIViewController, SFSpeechRecognizerDelegate {
                 start.setTitle("Recording Not Available", for: [])
             }
         }
-            
+
     }
+    
+    
+    func startMeetingAPI(){
+       guard let gitURL = URL(string: "http://api.likeholidaybatam.com/start_meeting_room.php") else {return}
+       
+       var request = URLRequest(url: gitURL)
+           request.httpMethod = "POST"
+           
+       
+        let stringPost="host_id=\(self.defaults.string(forKey: "UUID")!)&room_code=\(self.defaults.string(forKey: "room_code")!)" // Key and Value 
+        
+            print(stringPost)
+           let data = stringPost.data(using: .utf8)
+               request.httpBody=data
+             
+       URLSession.shared.dataTask(with: request) { (data, respone, error) in
+           
+       guard let data = data else { return }
+           do {
+                let decoder = JSONDecoder()
+                let roomData = try decoder.decode(StatusResponseJson.self, from: data)
+           
+            print(roomData.status)
+            DispatchQueue.main.async {
+                
+                if roomData.status == false{
+                    print("gagal kirim start")
+                }else{
+                    print("Berhasil Start")
+                }
+            }
+                     
+               
+               }catch let err{
+                    print("Error", err)
+               }
+           }.resume()
+       }
+    
+    
+    func endMeetingAPI(){
+        if(defaults.bool(forKey: "isHost")){
+           guard let gitURL = URL(string: "http://api.likeholidaybatam.com/end_meeting_room.php") else {return}
+           
+           var request = URLRequest(url: gitURL)
+            request.httpMethod = "POST"
+               
+           
+            let stringPost="host_id=\(self.defaults.string(forKey: "UUID")!)&room_code=\(self.defaults.string(forKey: "room_code")!)" // Key and Value 
+            
+            print(stringPost)
+            let data = stringPost.data(using: .utf8)
+                   request.httpBody=data
+                 
+           URLSession.shared.dataTask(with: request) { (data, respone, error) in
+               
+           guard let data = data else { return }
+               do {
+                    let decoder = JSONDecoder()
+                    let roomData = try decoder.decode(StatusResponseJson.self, from: data)
+               
+                print(roomData.status)
+                DispatchQueue.main.async {
+                    
+                    if roomData.status == false{
+                        print("gagal kirim start")
+                    }else{
+                        print("Berhasil Start")
+                    }
+                }
+                         
+                   
+                   }catch let err{
+                        print("Error", err)
+                   }
+               }.resume()
+        }else{
+            print("you're not a host")
+        }
+        
+       }
    
 
 }
