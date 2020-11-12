@@ -95,6 +95,7 @@ class MainViewController: UIViewController {
         }
         alert.addAction(UIAlertAction(title: "Enter", style: .default, handler: { (UIAlertAction) in
             if(self.textField.text?.isEmpty == false){
+                self.defaults.set(false, forKey: "isHost")
                 self.performSegue(withIdentifier: "join", sender: self)
             }
         }))

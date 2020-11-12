@@ -39,6 +39,7 @@ class ResultViewController: UIViewController {
             
                 DispatchQueue.main.async {
                     print(statusResult.total_terinterruptions)
+                    self.resultLabal.text = "\(statusResult.total_terinterruptions) Intteruptions Found"
                 }
             }catch let err{
                 print("Error", err)

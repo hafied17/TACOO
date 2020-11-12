@@ -64,7 +64,7 @@ class CreateRoomViewController: UIViewController {
                         
                         self.meetingCode.text = "\(String(describing: roomData.room_code!))"
                         self.defaults.set(roomData.room_code!, forKey: "room_code")
-                        
+                        self.defaults.set(true, forKey: "isHost")
                     }
                     
                     
