@@ -21,6 +21,8 @@ class StartViewController: UIViewController, SFSpeechRecognizerDelegate {
     let defaults = UserDefaults.standard
     var meetingRoom = postDataMeeting()
     var fullTranscript = [postDataTranscript]()
+    var isHost:Bool = false
+    var isStart:Bool = true
 
  
     var transcriptionStartTime: TimeInterval = 0
@@ -34,9 +36,9 @@ class StartViewController: UIViewController, SFSpeechRecognizerDelegate {
     override func viewDidLoad() {
         print(defaults.string(forKey: "room_code")!)
         print(defaults.string(forKey: "UUID")!)
-        if(defaults.bool(forKey: "isHost")){
+        isHost = defaults.bool(forKey: "isHost")
+        if(isHost){
             start.isHidden = false
-            
         }else{
             start.isHidden = true
             startRecord()
@@ -184,9 +186,6 @@ class StartViewController: UIViewController, SFSpeechRecognizerDelegate {
                             print(dataString)
                         }.resume()
                         
-                        // MARK: SEND API END MEETING
-                        endMeetingAPI()
-
                     } catch {
                         print("error:", error)
                     }
@@ -271,21 +270,16 @@ class StartViewController: UIViewController, SFSpeechRecognizerDelegate {
     }
    
     @IBAction func start(_ sender: UIButton){
-        startMeetingAPI()
+        
         startRecord()
-//        if audioEngine.isRunning {
-//            audioEngine.stop()
-//            recognitionRequest?.endAudio()
-//            start.isEnabled = false
-//            start.setTitle("Stopping", for: .disabled)
-//        }else{
-//            do {
-//                try startRecording()
-//                start.setTitle("Stop Recording", for: [])
-//            }catch{
-//                start.setTitle("Recording Not Available", for: [])
-//            }
-//        }
+        if(isStart){
+            startMeetingAPI()
+            isStart = false
+        }else{
+            if(isHost){
+                endMeetingAPI()
+            }
+        }
             
     }
     
@@ -347,7 +341,6 @@ class StartViewController: UIViewController, SFSpeechRecognizerDelegate {
     
     
     func endMeetingAPI(){
-        if(defaults.bool(forKey: "isHost")){
            guard let gitURL = URL(string: "http://api.likeholidaybatam.com/end_meeting_room.php") else {return}
            
            var request = URLRequest(url: gitURL)
@@ -382,9 +375,7 @@ class StartViewController: UIViewController, SFSpeechRecognizerDelegate {
                         print("Error", err)
                    }
                }.resume()
-        }else{
-            print("you're not a host")
-        }
+        
         
        }
    
