@@ -48,7 +48,7 @@ class StandbyRoomViewController: UIViewController {
        guard let data = data else { return }
            do {
                 let decoder = JSONDecoder()
-                let roomData = try decoder.decode(CheckStatus.self, from: data)
+            let roomData = try decoder.decode(CheckStatus.self, from: data)
            
             print(roomData.status!)
             DispatchQueue.main.async {
@@ -57,7 +57,7 @@ class StandbyRoomViewController: UIViewController {
                     self.statusMetting.text="Wait for the Host to start the meeting"
                 }else{
                     self.statusMetting.text="Ready"
-                    self.performSegue(withIdentifier: "start", sender: nil)
+                    
                 }
             }
                      
@@ -67,11 +67,6 @@ class StandbyRoomViewController: UIViewController {
                }
            }.resume()
        }
-   func GenerateUUID() -> String{
-          let uuid = UUID().uuidString
-          defaults.set(uuid, forKey: "UUID")
-          return uuid
-      }
     func memberID() -> String {
           let uuid = defaults.string(forKey: "UUID")!
           return uuid
@@ -81,7 +76,7 @@ class StandbyRoomViewController: UIViewController {
       }
     
     
-    struct CheckStatus: Codable {
+    struct CheckStatusq: Codable {
         var status: Bool?
           let description: String?
 
@@ -90,6 +85,6 @@ class StandbyRoomViewController: UIViewController {
           case status
           case description
        }
-      }
+    }
 
 }

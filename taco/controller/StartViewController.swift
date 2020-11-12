@@ -17,12 +17,15 @@ class StartViewController: UIViewController, SFSpeechRecognizerDelegate {
     private var recognitionRequest: SFSpeechAudioBufferRecognitionRequest?
     private var recognitionTask: SFSpeechRecognitionTask?
     private let audioEngine = AVAudioEngine()
+    @IBOutlet weak var roomCodeLabel: UILabel!
+    @IBOutlet weak var statusLabel: UILabel!
     
     let defaults = UserDefaults.standard
     var meetingRoom = postDataMeeting()
     var fullTranscript = [postDataTranscript]()
     var isHost:Bool = false
     var isStart:Bool = true
+    var timer = Timer()
 
  
     var transcriptionStartTime: TimeInterval = 0
@@ -37,12 +40,7 @@ class StartViewController: UIViewController, SFSpeechRecognizerDelegate {
         print(defaults.string(forKey: "room_code")!)
         print(defaults.string(forKey: "UUID")!)
         isHost = defaults.bool(forKey: "isHost")
-        if(isHost){
-            start.isHidden = false
-        }else{
-            start.isHidden = true
-            startRecord()
-        }
+
         
         super.viewDidLoad()
         start.layer.cornerRadius = 10
@@ -76,6 +74,18 @@ class StartViewController: UIViewController, SFSpeechRecognizerDelegate {
                     self.start.isEnabled = false
                 }
             }
+        }
+        
+        if(isHost){
+            start.isHidden = false
+            roomCodeLabel.isHidden = true
+            statusLabel.isHidden = true
+        }else{
+            start.isHidden = false
+            roomCodeLabel.isHidden = false
+            statusLabel.isHidden = false
+            roomCodeLabel.text = "Your room code is \(defaults.string(forKey: "room_code")!)"
+            scheduledTimerWithTimeInterval()
         }
     
     }
@@ -195,7 +205,7 @@ class StartViewController: UIViewController, SFSpeechRecognizerDelegate {
                 }
             }
             
-            
+            print("Erro", error, isFinal)
             if error != nil || isFinal {
                 // Stop recognizing speech if there is a problem.
                 self.audioEngine.stop()
@@ -245,6 +255,11 @@ class StartViewController: UIViewController, SFSpeechRecognizerDelegate {
         let uuid = defaults.string(forKey: "UUID")!
         return uuid
     }
+    
+    func room_code() -> String {
+          return self.defaults.string(forKey: "room_code")!
+    }
+    
     
     // MARK: Create Body JSON
     // MARK: httpBody Request
@@ -375,9 +390,60 @@ class StartViewController: UIViewController, SFSpeechRecognizerDelegate {
                         print("Error", err)
                    }
                }.resume()
-        
-        
        }
+    
+    //MARK: Infinite Loop Timer Schedule with Interval
+    func scheduledTimerWithTimeInterval() {
+        timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(checkStatusAPI), userInfo: nil, repeats: true)
+    }
+    
+    @objc func checkStatusAPI(){
+       guard let gitURL = URL(string: "http://api.likeholidaybatam.com/check_status_meeting.php") else {return}
+       
+       var request = URLRequest(url: gitURL)
+           request.httpMethod = "POST"
+           
+       
+           let stringPost="room_code=\(room_code())" // Key and Value 
+        
+            print(stringPost)
+           let data = stringPost.data(using: .utf8)
+               request.httpBody=data
+             
+       URLSession.shared.dataTask(with: request) { (data, respone, error) in
+           
+       guard let data = data else { return }
+           do {
+            let roomData = try JSONDecoder().decode(CheckStatusRoom.self, from: data)
+           
+            print(roomData.status!)
+            DispatchQueue.main.async {
+                
+                if roomData.status! == false{
+                    print("\(roomData.status)")
+                    self.statusLabel.text="Wait for the Host to start the meeting"
+                }else{
+                    self.statusLabel.text="Ready"
+                    self.startRecord()
+                }
+            }
+                     
+               
+               }catch let err{
+                    print("Error", err)
+               }
+           }.resume()
+       }
+    
+    struct CheckStatusRoom: Encodable, Decodable {
+        var status: Bool?
+        let description: String?
+
+        private enum CodingKeys: String, CodingKey{
+          case status
+          case description
+       }
+    }
    
 
 }

@@ -43,6 +43,8 @@ struct Result: Decodable {
         case total_terinterruptions
         case details
     }
+
+
 //
 //    init(from decoder: Decoder) throws {
 //        let container = try decoder.container(keyedBy: CodingKeys.self)

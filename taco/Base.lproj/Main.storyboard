@@ -71,7 +71,7 @@
                         <outlet property="field" destination="JO4-zn-Xfz" id="2vZ-a3-Bhf"/>
                         <outlet property="join" destination="OAD-zy-f6I" id="5bq-0J-IQW"/>
                         <outlet property="textField" destination="JO4-zn-Xfz" id="3ol-OY-gaJ"/>
-                        <segue destination="0nx-hc-zmI" kind="presentation" identifier="join" modalPresentationStyle="fullScreen" id="kxx-pY-AOE"/>
+                        <segue destination="TNH-SX-DMT" kind="presentation" identifier="join" modalPresentationStyle="fullScreen" id="AOb-LU-Z4d"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Bbm-6e-WsT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -139,47 +139,6 @@
             </objects>
             <point key="canvasLocation" x="1939" y="919"/>
         </scene>
-        <!--Standby Room View Controller-->
-        <scene sceneID="xOn-nL-dur">
-            <objects>
-                <viewController id="0nx-hc-zmI" customClass="StandbyRoomViewController" customModule="taco" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="DvB-Be-bmR">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cxa-w4-hqS">
-                                <rect key="frame" x="53" y="177" width="341" height="50"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Iav-Ar-ffx">
-                                <rect key="frame" x="53" y="267" width="341" height="75"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hsx-VB-q9s">
-                                <rect key="frame" x="161" y="433" width="97" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Cheat to Start"/>
-                            </button>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="QnZ-ee-tga"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
-                    <connections>
-                        <outlet property="roomCode" destination="Cxa-w4-hqS" id="Xxm-ut-ggK"/>
-                        <outlet property="statusMetting" destination="Iav-Ar-ffx" id="xNI-Tm-H0I"/>
-                        <segue destination="TNH-SX-DMT" kind="presentation" identifier="start" modalPresentationStyle="fullScreen" id="Uq2-jr-P9a"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="J9v-BK-kJK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3217" y="138"/>
-        </scene>
         <!--Start View Controller-->
         <scene sceneID="Mqf-aa-Rlb">
             <objects>
@@ -201,6 +160,20 @@
                                     <action selector="start:" destination="TNH-SX-DMT" eventType="touchUpInside" id="F6A-oR-foD"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sxv-9P-qd4">
+                                <rect key="frame" x="20" y="154" width="374" height="45"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fWi-lO-xMR">
+                                <rect key="frame" x="20" y="231" width="374" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="fDW-9I-jH7"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -213,13 +186,15 @@
                     </view>
                     <navigationItem key="navigationItem" id="eZx-0g-AzM"/>
                     <connections>
+                        <outlet property="roomCodeLabel" destination="sxv-9P-qd4" id="R0V-t2-P1w"/>
                         <outlet property="start" destination="0ly-mD-VbK" id="CpL-W9-CEV"/>
+                        <outlet property="statusLabel" destination="fWi-lO-xMR" id="ZdN-4W-j03"/>
                         <segue destination="jsH-NM-n8i" kind="presentation" identifier="stop" modalPresentationStyle="fullScreen" id="2aE-eJ-QbR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="abq-Mb-XZ7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5130" y="550"/>
+            <point key="canvasLocation" x="5128.985507246377" y="549.77678571428567"/>
         </scene>
         <!--Status Result View Controller-->
         <scene sceneID="lyP-wp-1g8">
@@ -365,7 +340,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="KOC-uo-Dcf"/>
+        <segue reference="AOb-LU-Z4d"/>
     </inferredMetricsTieBreakers>
     <resources>
         <systemColor name="systemBackgroundColor">
