@@ -27,7 +27,7 @@ struct StatusResponseJson: Encodable, Decodable {
 
 struct DetailResult: Decodable {
     var victim_name: String?
-    var number_interuption: Int8?
+    var number_interuption: Int?
     
     private enum CodingKeys: String, CodingKey{
         case victim_name
@@ -36,7 +36,7 @@ struct DetailResult: Decodable {
 }
 
 struct Result: Decodable {
-    var total_terinterruptions: Int8
+    var total_terinterruptions: Int
     var details: [DetailResult]?
     
     private enum CodingKeys: String, CodingKey{

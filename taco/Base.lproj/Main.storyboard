@@ -71,7 +71,7 @@
                         <outlet property="field" destination="JO4-zn-Xfz" id="2vZ-a3-Bhf"/>
                         <outlet property="join" destination="OAD-zy-f6I" id="5bq-0J-IQW"/>
                         <outlet property="textField" destination="JO4-zn-Xfz" id="3ol-OY-gaJ"/>
-                        <segue destination="bmc-Dt-PR3" kind="show" identifier="join" id="Z0q-Ej-NNn"/>
+                        <segue destination="0nx-hc-zmI" kind="presentation" identifier="join" modalPresentationStyle="fullScreen" id="kxx-pY-AOE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Bbm-6e-WsT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -132,7 +132,7 @@
                     <connections>
                         <outlet property="create" destination="97H-wG-WXK" id="kWi-qe-vb4"/>
                         <outlet property="meetingCode" destination="4Of-g4-GaX" id="57h-AK-il9"/>
-                        <segue destination="bmc-Dt-PR3" kind="presentation" identifier="create" modalPresentationStyle="fullScreen" id="Nj4-Dp-Wt3"/>
+                        <segue destination="0nx-hc-zmI" kind="presentation" identifier="create" modalPresentationStyle="fullScreen" id="3BU-1m-OXG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HRL-vT-084" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -146,13 +146,42 @@
                     <view key="view" contentMode="scaleToFill" id="DvB-Be-bmR">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cxa-w4-hqS">
+                                <rect key="frame" x="186" y="177" width="42" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Iav-Ar-ffx">
+                                <rect key="frame" x="186" y="267" width="42" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hsx-VB-q9s">
+                                <rect key="frame" x="161" y="433" width="97" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Cheat to Start"/>
+                                <connections>
+                                    <segue destination="TNH-SX-DMT" kind="presentation" modalPresentationStyle="fullScreen" id="mlM-4p-6kD"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="QnZ-ee-tga"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <connections>
+                        <outlet property="roomCode" destination="Cxa-w4-hqS" id="Xxm-ut-ggK"/>
+                        <outlet property="statusMetting" destination="Iav-Ar-ffx" id="xNI-Tm-H0I"/>
+                        <segue destination="TNH-SX-DMT" kind="presentation" identifier="start" modalPresentationStyle="fullScreen" id="Uq2-jr-P9a"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="J9v-BK-kJK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4039" y="550"/>
+            <point key="canvasLocation" x="3874" y="552"/>
         </scene>
         <!--Start View Controller-->
         <scene sceneID="Mqf-aa-Rlb">
@@ -194,42 +223,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="abq-Mb-XZ7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="5130" y="550"/>
-        </scene>
-        <!--Name View Controller-->
-        <scene sceneID="TaU-wQ-lqh">
-            <objects>
-                <viewController id="bmc-Dt-PR3" customClass="NameViewController" customModule="taco" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="caH-Yj-lmQ">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RWg-g9-fBm">
-                                <rect key="frame" x="184" y="498" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <connections>
-                                    <action selector="joinButtonTapped:" destination="bmc-Dt-PR3" eventType="touchUpInside" id="cCv-Zu-RRC"/>
-                                </connections>
-                            </button>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="v4K-Uv-Y1p">
-                                <rect key="frame" x="80" y="409" width="253" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="VWp-L0-kmW"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="Byd-rP-uSL"/>
-                    <connections>
-                        <outlet property="nameTextField" destination="v4K-Uv-Y1p" id="7ua-kx-aeU"/>
-                        <segue destination="TNH-SX-DMT" kind="presentation" identifier="join" modalPresentationStyle="fullScreen" id="16t-YD-fIS"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Vme-Sn-gu0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2905.7971014492755" y="551.11607142857144"/>
         </scene>
         <!--Status Result View Controller-->
         <scene sceneID="lyP-wp-1g8">
@@ -375,7 +368,8 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Nj4-Dp-Wt3"/>
+        <segue reference="mlM-4p-6kD"/>
+        <segue reference="kxx-pY-AOE"/>
     </inferredMetricsTieBreakers>
     <resources>
         <systemColor name="systemBackgroundColor">

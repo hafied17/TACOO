@@ -31,7 +31,7 @@ class CreateRoomViewController: UIViewController {
             create.setTitle("Next", for: .normal)
             fetchAPI()
         }else{
-            self.performSegue(withIdentifier: "create", sender: self)
+            alertMemberName()
         }
         
         
@@ -83,6 +83,17 @@ class CreateRoomViewController: UIViewController {
     
     func HostID() -> String{
         return defaults.string(forKey: "UUID")!
+    }
+    
+    func alertMemberName() {
+        let alert = UIAlertController(title: "Your Name", message: "Please input your name", preferredStyle: .alert)
+        alert.addTextField { (textField) in
+            textField.text = "Name"
+        }
+        alert.addAction(UIAlertAction(title: "Enter", style: .default, handler: { (UIAlertAction) in
+                self.performSegue(withIdentifier: "create", sender: self)
+        }))
+        self.present(alert, animated: true, completion: nil)
     }
     
     struct CreateRoom: Codable {

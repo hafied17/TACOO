@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		31852E02255BFB45009BD8D8 /* NameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31852E01255BFB45009BD8D8 /* NameViewController.swift */; };
 		31852E05255C0A27009BD8D8 /* StandbyRoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31852E04255C0A27009BD8D8 /* StandbyRoomViewController.swift */; };
 		31852E09255C226B009BD8D8 /* ResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31852E08255C226B009BD8D8 /* ResultViewController.swift */; };
 		31A30362255ACF3200239ABC /* StatusResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31A30361255ACF3200239ABC /* StatusResultViewController.swift */; };
@@ -26,7 +25,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		31852E01255BFB45009BD8D8 /* NameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameViewController.swift; sourceTree = "<group>"; };
 		31852E04255C0A27009BD8D8 /* StandbyRoomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandbyRoomViewController.swift; sourceTree = "<group>"; };
 		31852E08255C226B009BD8D8 /* ResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultViewController.swift; sourceTree = "<group>"; };
 		31A30361255ACF3200239ABC /* StatusResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusResultViewController.swift; sourceTree = "<group>"; };
@@ -97,7 +95,6 @@
 				807F135B25566B2600B9753E /* StartViewController.swift */,
 				807F13632556A06600B9753E /* audioViewController.swift */,
 				31A30361255ACF3200239ABC /* StatusResultViewController.swift */,
-				31852E01255BFB45009BD8D8 /* NameViewController.swift */,
 				31852E04255C0A27009BD8D8 /* StandbyRoomViewController.swift */,
 				31852E08255C226B009BD8D8 /* ResultViewController.swift */,
 				31FEAB74255CC4100076544C /* CreateRoomViewController.swift */,
@@ -188,7 +185,6 @@
 				31A30362255ACF3200239ABC /* StatusResultViewController.swift in Sources */,
 				807F135C25566B2600B9753E /* StartViewController.swift in Sources */,
 				807F134525564F5000B9753E /* SceneDelegate.swift in Sources */,
-				31852E02255BFB45009BD8D8 /* NameViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
