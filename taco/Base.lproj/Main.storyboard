@@ -78,10 +78,10 @@
             </objects>
             <point key="canvasLocation" x="1939.1304347826087" y="137.94642857142856"/>
         </scene>
-        <!--Create View Controller-->
+        <!--Create Room View Controller-->
         <scene sceneID="zmS-ia-rog">
             <objects>
-                <viewController storyboardIdentifier="create" id="trS-b6-i4s" customClass="CreateViewController" customModule="taco" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="create" id="trS-b6-i4s" customClass="CreateRoomViewController" customModule="taco" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Foh-L1-pMx">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -375,7 +375,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Z0q-Ej-NNn"/>
+        <segue reference="Nj4-Dp-Wt3"/>
     </inferredMetricsTieBreakers>
     <resources>
         <systemColor name="systemBackgroundColor">
