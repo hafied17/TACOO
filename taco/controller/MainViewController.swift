@@ -21,8 +21,6 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         join.layer.cornerRadius = 10.0
-        
-     //   print(defaults.string(forKey: "room_code")!)
 
         field.returnKeyType = .done
         field.autocorrectionType = .no
@@ -31,6 +29,7 @@ class MainViewController: UIViewController {
     
     
    @IBAction func join(_ sender: Any) {
+    
     
     JoinAPI()
    
@@ -61,8 +60,8 @@ class MainViewController: UIViewController {
             DispatchQueue.main.async {
                 print(self.memberID())
                 if roomData.status == true{
-                    self.defaults.set(meetingCode, forKey: "code_room")
-                    self.performSegue(withIdentifier: "join", sender: self)
+                    self.defaults.set(meetingCode, forKey: "room_code")
+                    self.alertMemberName()
                 }else{
                     let alert = UIAlertController(title: "Room doesn't exist!", message: "Please check your room code again", preferredStyle: .alert)
                     alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (UIAlertAction) in
@@ -87,6 +86,20 @@ class MainViewController: UIViewController {
     func memberID() -> String {
         let uuid = defaults.string(forKey: "UUID")!
         return uuid
+    }
+    
+    func alertMemberName() {
+        let alert = UIAlertController(title: "Your Name", message: "Please input your name", preferredStyle: .alert)
+        alert.addTextField { (textField) in
+            textField.text = ""
+        }
+        alert.addAction(UIAlertAction(title: "Enter", style: .default, handler: { (UIAlertAction) in
+            if(self.textField.text?.isEmpty == false){
+                self.defaults.set(false, forKey: "isHost")
+                self.performSegue(withIdentifier: "join", sender: self)
+            }
+        }))
+        self.present(alert, animated: true, completion: nil)
     }
         
     

@@ -1,18 +1,19 @@
 //
-//  createViewController.swift
+//  CreateRoomViewController.swift
 //  taco
 //
-//  Created by hafied Khalifatul ash.shiddiqi on 07/11/20.
+//  Created by Franky Chainoor Johari on 12/11/20.
 //  Copyright © 2020 hafied. All rights reserved.
 //
 
 import UIKit
 
-class CreateViewController: UIViewController {
+class CreateRoomViewController: UIViewController {
 
     @IBOutlet weak var create: UIButton!
     @IBOutlet weak var meetingCode: UILabel!
     var Active:Bool = true
+    let defaults = UserDefaults.standard
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,7 +31,7 @@ class CreateViewController: UIViewController {
             create.setTitle("Next", for: .normal)
             fetchAPI()
         }else{
-            self.performSegue(withIdentifier: "create", sender: self)
+            alertMemberName()
         }
         
         
@@ -40,12 +41,12 @@ class CreateViewController: UIViewController {
     func fetchAPI() {
         guard let gitURL = URL(string: "http://api.likeholidaybatam.com/generate_room_code.php") else {return}
             
-        _ =  ["host_id": UUID().uuidString]
+        _ =  ["host_id": GenerateHostID()]
             var request = URLRequest(url: gitURL)
             request.httpMethod = "POST"
             
         
-            let stringPost="host_id=\(UUID().uuidString)" // Key and Value 
+            let stringPost="host_id=\(HostID())" // Key and Value 
             let data = stringPost.data(using: .utf8)
             request.timeoutInterval = 60
             request.httpBody=data
@@ -62,7 +63,8 @@ class CreateViewController: UIViewController {
                     DispatchQueue.main.async {
                         
                         self.meetingCode.text = "\(String(describing: roomData.room_code!))"
-                        
+                        self.defaults.set(roomData.room_code!, forKey: "room_code")
+                        self.defaults.set(true, forKey: "isHost")
                     }
                     
                     
@@ -71,6 +73,27 @@ class CreateViewController: UIViewController {
                     print("Error", err)
                 }
             }.resume()
+    }
+    
+    func GenerateHostID() ->String{
+        let uuid = UUID().uuidString
+        defaults.set(uuid, forKey: "UUID")
+        return uuid
+    }
+    
+    func HostID() -> String{
+        return defaults.string(forKey: "UUID")!
+    }
+    
+    func alertMemberName() {
+        let alert = UIAlertController(title: "Your Name", message: "Please input your name", preferredStyle: .alert)
+        alert.addTextField { (textField) in
+            textField.text = "Name"
+        }
+        alert.addAction(UIAlertAction(title: "Enter", style: .default, handler: { (UIAlertAction) in
+                self.performSegue(withIdentifier: "create", sender: self)
+        }))
+        self.present(alert, animated: true, completion: nil)
     }
     
     struct CreateRoom: Codable {
@@ -84,5 +107,8 @@ class CreateViewController: UIViewController {
             case room_code
         }
     }
+    
+
+    
 
 }

@@ -52,7 +52,7 @@ class StatusResultViewController: UIViewController {
             
                 DispatchQueue.main.async {
                     if statusResult.status == true{
-                        print(statusResult.description)
+//                        print(statusResult.description)
                         self.timer.invalidate()
                         self.isLoading.stopAnimating()
                         self.isLoading.isHidden = true
@@ -60,7 +60,7 @@ class StatusResultViewController: UIViewController {
                         self.statusLabel.text = "Your Result is Ready"
                         self.performSegue(withIdentifier: "getResult", sender: nil)
                     }else{
-                        print(statusResult.description)
+//                        print(statusResult.description)
                        
                     }
                 }

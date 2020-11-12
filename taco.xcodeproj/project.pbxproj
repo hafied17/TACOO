@@ -7,10 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		31852E02255BFB45009BD8D8 /* NameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31852E01255BFB45009BD8D8 /* NameViewController.swift */; };
 		31852E05255C0A27009BD8D8 /* StandbyRoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31852E04255C0A27009BD8D8 /* StandbyRoomViewController.swift */; };
+		31852E09255C226B009BD8D8 /* ResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31852E08255C226B009BD8D8 /* ResultViewController.swift */; };
 		31A30362255ACF3200239ABC /* StatusResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31A30361255ACF3200239ABC /* StatusResultViewController.swift */; };
 		31A30365255ACFD800239ABC /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31A30364255ACFD800239ABC /* DataModel.swift */; };
+		31FEAB75255CC4100076544C /* CreateRoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31FEAB74255CC4100076544C /* CreateRoomViewController.swift */; };
 		807F134325564F5000B9753E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 807F134225564F5000B9753E /* AppDelegate.swift */; };
 		807F134525564F5000B9753E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 807F134425564F5000B9753E /* SceneDelegate.swift */; };
 		807F134725564F5000B9753E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 807F134625564F5000B9753E /* ViewController.swift */; };
@@ -20,16 +21,15 @@
 		807F135225564F5200B9753E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 807F135025564F5200B9753E /* LaunchScreen.storyboard */; };
 		807F135A2556535800B9753E /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 807F13592556535800B9753E /* MainViewController.swift */; };
 		807F135C25566B2600B9753E /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 807F135B25566B2600B9753E /* StartViewController.swift */; };
-		807F135E25566F3400B9753E /* detailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 807F135D25566F3400B9753E /* detailsViewController.swift */; };
-		807F1361255681E900B9753E /* CreateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 807F1360255681E900B9753E /* CreateViewController.swift */; };
 		807F13642556A06600B9753E /* audioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 807F13632556A06600B9753E /* audioViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		31852E01255BFB45009BD8D8 /* NameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameViewController.swift; sourceTree = "<group>"; };
 		31852E04255C0A27009BD8D8 /* StandbyRoomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandbyRoomViewController.swift; sourceTree = "<group>"; };
+		31852E08255C226B009BD8D8 /* ResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultViewController.swift; sourceTree = "<group>"; };
 		31A30361255ACF3200239ABC /* StatusResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusResultViewController.swift; sourceTree = "<group>"; };
 		31A30364255ACFD800239ABC /* DataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
+		31FEAB74255CC4100076544C /* CreateRoomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateRoomViewController.swift; sourceTree = "<group>"; };
 		807F133F25564F5000B9753E /* taco.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = taco.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		807F134225564F5000B9753E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		807F134425564F5000B9753E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -41,8 +41,6 @@
 		807F135325564F5200B9753E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		807F13592556535800B9753E /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		807F135B25566B2600B9753E /* StartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
-		807F135D25566F3400B9753E /* detailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = detailsViewController.swift; sourceTree = "<group>"; };
-		807F1360255681E900B9753E /* CreateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateViewController.swift; sourceTree = "<group>"; };
 		807F13632556A06600B9753E /* audioViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = audioViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -84,7 +82,6 @@
 				807F135025564F5200B9753E /* LaunchScreen.storyboard */,
 				807F135325564F5200B9753E /* Info.plist */,
 				807F134B25564F5000B9753E /* taco.xcdatamodeld */,
-				807F135D25566F3400B9753E /* detailsViewController.swift */,
 				31A30364255ACFD800239ABC /* DataModel.swift */,
 			);
 			path = taco;
@@ -96,11 +93,11 @@
 				807F134625564F5000B9753E /* ViewController.swift */,
 				807F13592556535800B9753E /* MainViewController.swift */,
 				807F135B25566B2600B9753E /* StartViewController.swift */,
-				807F1360255681E900B9753E /* CreateViewController.swift */,
 				807F13632556A06600B9753E /* audioViewController.swift */,
 				31A30361255ACF3200239ABC /* StatusResultViewController.swift */,
-				31852E01255BFB45009BD8D8 /* NameViewController.swift */,
 				31852E04255C0A27009BD8D8 /* StandbyRoomViewController.swift */,
+				31852E08255C226B009BD8D8 /* ResultViewController.swift */,
+				31FEAB74255CC4100076544C /* CreateRoomViewController.swift */,
 			);
 			path = controller;
 			sourceTree = "<group>";
@@ -176,10 +173,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				807F1361255681E900B9753E /* CreateViewController.swift in Sources */,
+				31852E09255C226B009BD8D8 /* ResultViewController.swift in Sources */,
 				807F134D25564F5000B9753E /* taco.xcdatamodeld in Sources */,
+				31FEAB75255CC4100076544C /* CreateRoomViewController.swift in Sources */,
 				807F135A2556535800B9753E /* MainViewController.swift in Sources */,
-				807F135E25566F3400B9753E /* detailsViewController.swift in Sources */,
 				807F13642556A06600B9753E /* audioViewController.swift in Sources */,
 				31A30365255ACFD800239ABC /* DataModel.swift in Sources */,
 				807F134725564F5000B9753E /* ViewController.swift in Sources */,
@@ -188,7 +185,6 @@
 				31A30362255ACF3200239ABC /* StatusResultViewController.swift in Sources */,
 				807F135C25566B2600B9753E /* StartViewController.swift in Sources */,
 				807F134525564F5000B9753E /* SceneDelegate.swift in Sources */,
-				31852E02255BFB45009BD8D8 /* NameViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

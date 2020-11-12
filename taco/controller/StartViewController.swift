@@ -32,6 +32,7 @@ class StartViewController: UIViewController, SFSpeechRecognizerDelegate {
     var isActive:Bool = true
 
     override func viewDidLoad() {
+        print(defaults.string(forKey: "room_code")!)
         super.viewDidLoad()
         start.layer.cornerRadius = 10
         // Configure the SFSpeechRecognizer object already
@@ -116,7 +117,7 @@ class StartViewController: UIViewController, SFSpeechRecognizerDelegate {
                     
                     for segment in result.bestTranscription.segments {
 //                        listChat = postDataTranscript(speakerID: "1", text: segment.substring, timestamp: segment.timestamp, duration: segment.duration)
-                        listChat = postDataTranscript(speakerID: "1", timestampStart: (self.transcriptionStartTime + segment.timestamp), duration: segment.duration, timestampEnd: (self.transcriptionStartTime + segment.timestamp + segment.duration), text: segment.substring)
+                        listChat = postDataTranscript(speakerID: memberID(), timestampStart: (self.transcriptionStartTime + segment.timestamp), duration: segment.duration, timestampEnd: (self.transcriptionStartTime + segment.timestamp + segment.duration), text: segment.substring)
                         print("Text: \(segment.substring) - Time: \(segment.timestamp) - Duration: \(segment.duration)")
                         self.fullTranscript.append(listChat)
 //                        print(Date().timeIntervalSince1970)
