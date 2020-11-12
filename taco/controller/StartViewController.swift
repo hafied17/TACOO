@@ -472,8 +472,6 @@ class StartViewController: UIViewController, SFSpeechRecognizerDelegate {
                     
                 }else{
                     self.statusLabel.text="Ready"
-                    self.timer.invalidate()
-                    self.startRecord()
                 }
             }
                      

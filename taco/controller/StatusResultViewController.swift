@@ -44,8 +44,8 @@ class StatusResultViewController: UIViewController {
         URLSession.shared.dataTask(with: request) { data, response, error in
             
             
-//            let dataString = String(data: data!, encoding: .utf8)
-//            print(dataString)
+            let dataString = String(data: data!, encoding: .utf8)
+            print(dataString)
             guard let data = data else {return}
             do{
                 let statusResult = try JSONDecoder().decode(StatusResponseJson.self, from: data)
