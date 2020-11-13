@@ -52,9 +52,11 @@ class MainViewController: UIViewController {
             let decoder = JSONDecoder()
             let roomData = try decoder.decode(JoinRoom.self, from: data)
         
+            
             print(roomData.status!)
-            DispatchQueue.main.async {
-                print(memberID())
+            DispatchQueue.main.async { [self] in
+                self.memberID()
+                
                 if roomData.status == true{
                     defaults.set(meetingCode, forKey: "room_code")
                     self.alertMemberName()
@@ -116,12 +118,13 @@ class MainViewController: UIViewController {
         alert.addTextField { (textField) in
             textField.text = ""
         }
+        
         alert.addAction(UIAlertAction(title: "Enter", style: .default, handler: { (UIAlertAction) in
             if(self.textField.text?.isEmpty == false){
-                self.defaults.set(false, forKey: "isHost")
+                defaults.set(false, forKey: "isHost")
                 
                 guard let textFieldNama =  alert.textFields?.first?.text else{return}
-                self.defaults.set(false, forKey: "isHost")
+                defaults.set(false, forKey: "isHost")
                 self.NamaAPI(namaUser: textFieldNama)
                 self.performSegue(withIdentifier: "join", sender: self)
             }
