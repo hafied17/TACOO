@@ -15,7 +15,6 @@ class MainViewController: UIViewController {
     @IBOutlet weak var join: UIButton!
     @IBOutlet weak var create: UIButton!
     @IBOutlet weak var textField: UITextField!
-    let defaults = UserDefaults.standard
     var isActive:Bool = true
     
     override func viewDidLoad() {
@@ -30,11 +29,8 @@ class MainViewController: UIViewController {
     
    @IBAction func join(_ sender: Any) {
     
-    
     JoinAPI()
    
-    
-    
    }
      
     
@@ -58,9 +54,9 @@ class MainViewController: UIViewController {
         
             print(roomData.status!)
             DispatchQueue.main.async {
-                print(self.memberID())
+                print(memberID())
                 if roomData.status == true{
-                    self.defaults.set(meetingCode, forKey: "room_code")
+                    defaults.set(meetingCode, forKey: "room_code")
                     self.alertMemberName()
                 }else{
                     let alert = UIAlertController(title: "Room doesn't exist!", message: "Please check your room code again", preferredStyle: .alert)
@@ -77,17 +73,6 @@ class MainViewController: UIViewController {
         }.resume()
     }
     
-    func GenerateUUID() -> String{
-        let uuid = UUID().uuidString
-        defaults.set(uuid, forKey: "UUID")
-        return uuid
-    }
-    
-    func memberID() -> String {
-        let uuid = defaults.string(forKey: "UUID")!
-        return uuid
-    }
-    
     func alertMemberName() {
         let alert = UIAlertController(title: "Your Name", message: "Please input your name", preferredStyle: .alert)
         alert.addTextField { (textField) in
@@ -95,26 +80,13 @@ class MainViewController: UIViewController {
         }
         alert.addAction(UIAlertAction(title: "Enter", style: .default, handler: { (UIAlertAction) in
             if(self.textField.text?.isEmpty == false){
-                self.defaults.set(false, forKey: "isHost")
+                defaults.set(false, forKey: "isHost")
                 self.performSegue(withIdentifier: "join", sender: self)
             }
         }))
         self.present(alert, animated: true, completion: nil)
     }
         
-    
-    struct JoinRoom: Codable {
-        let status: Bool?
-        let description: String?
-
-    
-    private enum CodingKeys: String, CodingKey{
-        case status
-        case description
-     }
-    }
-    
-    
 }
 
     

@@ -81,7 +81,7 @@ class StartViewController: UIViewController, SFSpeechRecognizerDelegate {
             roomCodeLabel.isHidden = true
             statusLabel.isHidden = true
         }else{
-            start.isHidden = false
+            start.isHidden = true
             roomCodeLabel.isHidden = false
             statusLabel.isHidden = false
             roomCodeLabel.text = "Your room code is \(defaults.string(forKey: "room_code")!)"
@@ -126,7 +126,6 @@ class StartViewController: UIViewController, SFSpeechRecognizerDelegate {
             
             if let result = result {
                 // Update the text view with the results.
-//                self.txtlbl.text = result.bestTranscription.formattedString
                 isFinal = result.isFinal
                 print("Text : \(result.bestTranscription.formattedString)")
                 
@@ -137,12 +136,9 @@ class StartViewController: UIViewController, SFSpeechRecognizerDelegate {
                 if result.isFinal {
                     
                     for segment in result.bestTranscription.segments {
-//                        listChat = postDataTranscript(speakerID: "1", text: segment.substring, timestamp: segment.timestamp, duration: segment.duration)
                         listChat = postDataTranscript(speakerID: memberID(), timestampStart: (self.transcriptionStartTime + segment.timestamp), duration: segment.duration, timestampEnd: (self.transcriptionStartTime + segment.timestamp + segment.duration), text: segment.substring)
                         print("Text: \(segment.substring) - Time: \(segment.timestamp) - Duration: \(segment.duration)")
                         self.fullTranscript.append(listChat)
-//                        print(Date().timeIntervalSince1970)
-                        
                     }
                     
                     self.meetingRoom.fullTranscription = self.fullTranscript
@@ -159,7 +155,7 @@ class StartViewController: UIViewController, SFSpeechRecognizerDelegate {
                         let fileManager = FileManager.default
                         let filepath = try fileManager.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
                         print("url filepath: \(filepath)")
-                        let fileJsonUrl = filepath.appendingPathComponent(self.memberID()).appendingPathExtension("json")
+                        let fileJsonUrl = filepath.appendingPathComponent(memberID()).appendingPathExtension("json")
                         print("file path: \(fileJsonUrl)")
 
                         do{
@@ -180,7 +176,7 @@ class StartViewController: UIViewController, SFSpeechRecognizerDelegate {
                         httpBody.appendString(self.convertFormField(named: "room_code", value: room_code!, using: boundary))
                         
                         httpBody.append(self.convertFileData(fieldName: "userfile",
-                                                        fileName: "\(self.memberID()).json",
+                                                        fileName: "\(memberID()).json",
                                                         mimeType: "application/json",
                                                         fileData: fileJsonData,
                                                         using: boundary))
@@ -250,15 +246,6 @@ class StartViewController: UIViewController, SFSpeechRecognizerDelegate {
     private func generateBoundaryString() -> String{
         let uuid = defaults.string(forKey: "UUID")!
         return "Boundary-\(uuid)"
-    }
-    
-    func memberID() -> String{
-        let uuid = defaults.string(forKey: "UUID")!
-        return uuid
-    }
-    
-    func room_code() -> String {
-          return self.defaults.string(forKey: "room_code")!
     }
     
     

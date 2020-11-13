@@ -25,6 +25,29 @@ struct StatusResponseJson: Encodable, Decodable {
     var description: String
 }
 
+struct JoinRoom: Codable {
+    let status: Bool?
+    let description: String?
+
+
+    private enum CodingKeys: String, CodingKey{
+        case status
+        case description
+    }
+}
+
+struct CreateRoom: Codable {
+    let status: Bool?
+    let description: String?
+    let room_code: Int?
+    
+    private enum CodingKeys: String, CodingKey{
+        case status
+        case description
+        case room_code
+    }
+}
+
 struct DetailResult: Decodable {
     var victim_name: String?
     var number_interuption: Int?
@@ -43,19 +66,6 @@ struct Result: Decodable {
         case total_terinterruptions
         case details
     }
-
-
-//
-//    init(from decoder: Decoder) throws {
-//        let container = try decoder.container(keyedBy: CodingKeys.self)
-//        do{
-//            let detailsResult = try container.decode(DetailResult.self, forKey: .details)
-//            details = [detailsResult]
-//        }catch DecodingError.typeMismatch{
-//            details = try container.decode([DetailResult].self, forKey: .details)
-//        }
-//    }
-
 }
 
 

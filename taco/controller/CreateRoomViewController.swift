@@ -13,14 +13,10 @@ class CreateRoomViewController: UIViewController {
     @IBOutlet weak var create: UIButton!
     @IBOutlet weak var meetingCode: UILabel!
     var Active:Bool = true
-    let defaults = UserDefaults.standard
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         create.layer.cornerRadius = 10.0
-        
-        
      
     }
     
@@ -41,12 +37,12 @@ class CreateRoomViewController: UIViewController {
     func fetchAPI() {
         guard let gitURL = URL(string: "http://api.likeholidaybatam.com/generate_room_code.php") else {return}
             
-        _ =  ["host_id": GenerateHostID()]
+        _ =  ["host_id": GenerateUUID()]
             var request = URLRequest(url: gitURL)
             request.httpMethod = "POST"
             
         
-            let stringPost="host_id=\(HostID())" // Key and Value 
+            let stringPost="host_id=\(memberID())" // Key and Value 
             let data = stringPost.data(using: .utf8)
             request.timeoutInterval = 60
             request.httpBody=data
@@ -63,8 +59,8 @@ class CreateRoomViewController: UIViewController {
                     DispatchQueue.main.async {
                         
                         self.meetingCode.text = "\(String(describing: roomData.room_code!))"
-                        self.defaults.set(roomData.room_code!, forKey: "room_code")
-                        self.defaults.set(true, forKey: "isHost")
+                        defaults.set(roomData.room_code!, forKey: "room_code")
+                        defaults.set(true, forKey: "isHost")
                     }
                     
                     
@@ -73,16 +69,6 @@ class CreateRoomViewController: UIViewController {
                     print("Error", err)
                 }
             }.resume()
-    }
-    
-    func GenerateHostID() ->String{
-        let uuid = UUID().uuidString
-        defaults.set(uuid, forKey: "UUID")
-        return uuid
-    }
-    
-    func HostID() -> String{
-        return defaults.string(forKey: "UUID")!
     }
     
     func alertMemberName() {
@@ -96,17 +82,7 @@ class CreateRoomViewController: UIViewController {
         self.present(alert, animated: true, completion: nil)
     }
     
-    struct CreateRoom: Codable {
-        let status: Bool?
-        let description: String?
-        let room_code: Int?
-        
-        private enum CodingKeys: String, CodingKey{
-            case status
-            case description
-            case room_code
-        }
-    }
+
     
 
     
