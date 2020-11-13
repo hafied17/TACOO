@@ -73,6 +73,44 @@ class MainViewController: UIViewController {
         }.resume()
     }
     
+    func NamaAPI(namaUser: String) {
+        guard let girURL = URL(string: "http://api.likeholidaybatam.com/insert_nama.php") else {return}
+        var request = URLRequest(url:girURL)
+            request.httpMethod = "POST"
+        
+        
+        let stringPost="member_id=\(memberID())&nama=\(namaUser)"
+        let data = stringPost.data(using: .utf8)
+        request.httpBody=data
+        
+        URLSession.shared.dataTask(with: request) { (data, respone, error) in
+            
+            guard let data = data else {return}
+            do{
+                let decoder = JSONDecoder()
+                let roomData = try decoder.decode(NamaUser.self, from: data)
+                
+                print(roomData.nama!)
+                
+                
+            }catch let err{
+                print("Error", err)
+            }
+        }.resume()
+        
+    }
+    
+    func GenerateUUID() -> String{
+        let uuid = UUID().uuidString
+        defaults.set(uuid, forKey: "UUID")
+        return uuid
+    }
+    
+    func memberID() -> String {
+        let uuid = defaults.string(forKey: "UUID")!
+        return uuid
+    }
+    
     func alertMemberName() {
         let alert = UIAlertController(title: "Your Name", message: "Please input your name", preferredStyle: .alert)
         alert.addTextField { (textField) in
@@ -80,13 +118,42 @@ class MainViewController: UIViewController {
         }
         alert.addAction(UIAlertAction(title: "Enter", style: .default, handler: { (UIAlertAction) in
             if(self.textField.text?.isEmpty == false){
-                defaults.set(false, forKey: "isHost")
+                self.defaults.set(false, forKey: "isHost")
+                
+                guard let textFieldNama =  alert.textFields?.first?.text else{return}
+                self.defaults.set(false, forKey: "isHost")
+                self.NamaAPI(namaUser: textFieldNama)
                 self.performSegue(withIdentifier: "join", sender: self)
             }
         }))
         self.present(alert, animated: true, completion: nil)
     }
         
+    
+    struct JoinRoom: Codable {
+        let status: Bool?
+        let description: String?
+
+    
+    private enum CodingKeys: String, CodingKey{
+        case status
+        case description
+     }
+    }
+    struct NamaUser: Codable {
+        let status: Bool?
+        let description: String?
+        let nama: String?
+
+    
+    private enum CodingKeys: String, CodingKey{
+        case status
+        case description
+        case nama
+     }
+    }
+    
+    
 }
 
     
