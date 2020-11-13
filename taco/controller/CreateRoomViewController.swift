@@ -13,7 +13,7 @@ class CreateRoomViewController: UIViewController {
     @IBOutlet weak var create: UIButton!
     @IBOutlet weak var meetingCode: UILabel!
     var Active:Bool = true
-    
+    // test commit
     override func viewDidLoad() {
         super.viewDidLoad()
         create.layer.cornerRadius = 10.0
